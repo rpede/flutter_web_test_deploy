@@ -57,6 +57,7 @@ Or in Chrome using:
 ### Deploy
 
 - Commit and push changes to your repository
+- Wait for actions to complete
 - Go to "Settings" tab in your repository.
 - Find "Pages" in the side menu.
 - Configure as shown in screenshot below
