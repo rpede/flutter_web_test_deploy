@@ -19,10 +19,9 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/rpede/flutter_web_test_d
 
 ### Add test
 
-Add your tests to `integration_test/` folder.
+Add your tests to `integration_test/app_test.dart`
 Example:
 
-`integration_test/app_test.dart`
 ```dart
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
@@ -39,6 +38,13 @@ void main() {
   });
 }
 ```
+The only thing that is different from a widget test is that `main()` starts with:
+
+```dart
+IntegrationTestWidgetsFlutterBinding.ensureInitialized();
+```
+
+So if you have a widget test already, just copy it to `integration_test/app_test.dart`.
 
 ### Run
 
