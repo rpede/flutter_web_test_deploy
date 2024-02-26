@@ -1,10 +1,10 @@
-name: Test, Build and Release for Web
+name: Test, Build and Deploy for Web
 on: push
 permissions:
   contents: write
 jobs:
   build:
-    name: Test and Release
+    name: Test and Build
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -17,7 +17,7 @@ jobs:
     - run: flutter --version
     - run: flutter pub get
     - run: flutter test
-    - run: ./web_test.sh
+    - run: sh web_test.sh
     - run: flutter build web --base-href /${{ github.event.repository.name }}/
     - uses: JamesIves/github-pages-deploy-action@v4
       with:
