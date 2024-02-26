@@ -10,7 +10,7 @@ else
 fi
 echo "Driver $DRIVER"
 
-# Download chromedriver to ./test_driver
+# Download chromedriver if not found
 if ! (type chromedriver &> /dev/null) && [ ! -f "chromedriver" ]; then
   dart run test_driver/download_chromedriver.dart 
 fi
