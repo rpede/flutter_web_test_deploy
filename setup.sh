@@ -6,3 +6,10 @@ mv $NAME-$BRANCH/* $NAME-$BRANCH/.* ./
 rm $BRANCH.zip
 rmdir $NAME-$BRANCH
 flutter pub add 'dev:flutter_test:{"sdk":"flutter"}'  'dev:integration_test:{"sdk":"flutter"}'
+cat <<EOT >> .gitignore
+
+# Chromedriver
+chromedriver-*/
+chromedriver*
+LICENSE.chromedriver
+EOT
