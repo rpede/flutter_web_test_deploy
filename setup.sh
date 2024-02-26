@@ -1,7 +1,7 @@
 NAME=flutter_web_test_deploy
 BRANCH=main
 curl -fsSL "https://github.com/rpede/$NAME/archive/refs/heads/$BRANCH.zip" -o $BRANCH.zip
-unzip -nD $BRANCH.zip -x README.md -x img/
+unzip -nD $BRANCH.zip -x $NAME-$BRANCH/setup.sh $NAME-$BRANCH/README.md $NAME-$BRANCH/img/*
 mv $NAME-$BRANCH/* $NAME-$BRANCH/.* ./
 rm $BRANCH.zip
 rmdir $NAME-$BRANCH
