@@ -51,13 +51,20 @@ You can now run your integration test headless (without browser window) using:
 Or in Chrome using:
 
 ```sh
-./web_test debug
+./web_test.sh debug
 ```
 
 ### Deploy
 
+- Commit and push changes to your repository
 - Go to "Settings" tab in your repository.
 - Find "Pages" in the side menu.
-- Configure as shown, then click "Visit site"
+- Configure as shown in screenshot below
 
 ![Build and deployment settings](img/deploy.png)
+
+Now add a link to your application as shown
+
+![About](img/link1.png)
+
+![Use your GitHub Pages website](img/link2.png)
