@@ -1,0 +1,30 @@
+name: Test, Build and Release for Web
+on: push
+permissions:
+  contents: write
+jobs:
+  build:
+    name: Test and Release
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Cache chromedriver
+      id: cache-chromedriver
+      uses: actions/cache@v4
+      with:
+        path: test_driver/chromedriver-linux64.zip
+        key: chromedriver-${{ runner.os }}
+    - uses: subosito/flutter-action@v2
+      with:
+        channel: 'stable'
+        cache: true
+        cache-key: 'flutter-:os:-:channel:-:version:-:arch:-:hash:' # optional, change this to force refresh cache
+        cache-path: '${{ runner.tool_cache }}/flutter/:channel:-:version:-:arch:' # optional, change this to specify the cache path
+    - run: flutter --version
+    - run: flutter pub get
+    - run: flutter test
+    - run: ./web_test.sh
+    - run: flutter build web --base-href /${{ github.event.repository.name }}/
+    - uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: build/web
