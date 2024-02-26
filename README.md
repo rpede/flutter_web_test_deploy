@@ -9,11 +9,15 @@ Lastest version of Chrome.
 
 ## Getting started
 
+### Install
+
 Open a terminal (bash or zsh) in your project folder and run:
 
 ```sh
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/rpede/flutter_web_test_deploy/main/setup.sh)"
 ```
+
+### Add test
 
 Add your tests to `integration_test/` folder.
 Example:
@@ -36,6 +40,8 @@ void main() {
 }
 ```
 
+### Run
+
 You can now run your integration test headless (without browser window) using:
 
 ```sh
@@ -47,3 +53,11 @@ Or in Chrome using:
 ```sh
 ./web_test debug
 ```
+
+### Deploy
+
+- Go to "Settings" tab in your repository.
+- Find "Pages" in the side menu.
+- Configure as shown, then click "Visit site"
+
+![Build and deployment settings](img/deploy.png)
